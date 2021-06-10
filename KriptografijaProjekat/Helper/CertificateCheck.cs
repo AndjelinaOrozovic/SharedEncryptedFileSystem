@@ -24,10 +24,10 @@ namespace KriptografijaProjekat.Helper
             Functions.executeCommandReturn("/c openssl x509 -in " + certificate + " -noout -dates > " + cert);
             var lines = File.ReadAllLines(cert);
             File.Delete(cert);
-            var myLine = lines[1];
+            var myLine = lines[1].Replace("  ", " ");
             string month = myLine.Split('=')[1].Split(' ')[0];
-            string day = myLine.Split('=')[1].Split(' ')[2];
-            string year = myLine.Split('=')[1].Split(' ')[4];
+            string day = myLine.Split('=')[1].Split(' ')[1];
+            string year = myLine.Split('=')[1].Split(' ')[3];
             DateTime date = new DateTime(Int32.Parse(year), (int)(Month.Jun + 1), Int32.Parse(day));
             var today = DateTime.Today;
             if (today > date)

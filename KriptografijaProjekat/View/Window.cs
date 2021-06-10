@@ -254,6 +254,7 @@ namespace KriptografijaProjekat.View
                     }
                     else MessageBox.Show("Please select file from your directory!");
                 }
+                else MessageBox.Show("Please select file from your directory!");
             }
             func(this.Text);
         }
